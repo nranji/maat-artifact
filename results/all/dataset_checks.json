@@ -1,0 +1,195 @@
+{
+  "wall_clock_s": 1012.4,
+  "ait_elapsed_s": 146.5,
+  "ait_ads": {
+    "n_alerts": 2655821,
+    "valid_ocsf_pct": 100.0,
+    "unknown_field_rate_pct": 75.0,
+    "by_detector": {
+      "wazuh": {
+        "n": 2293628,
+        "valid_pct": 100.0,
+        "unknown_field_rate_pct": 75.0
+      },
+      "suricata": {
+        "n": 306635,
+        "valid_pct": 100.0,
+        "unknown_field_rate_pct": 75.0
+      },
+      "aminer": {
+        "n": 55558,
+        "valid_pct": 100.0,
+        "unknown_field_rate_pct": 75.0
+      }
+    }
+  },
+  "guide": {
+    "n": 13664829,
+    "n_columns": 45,
+    "valid_ocsf": 13664829,
+    "valid_ocsf_pct": 100.0,
+    "unknown_fields": 25235694,
+    "unknown_field_rate_pct": 46.2,
+    "incident_grade": {
+      "TruePositive": 4815067,
+      "FalsePositive": 2934665,
+      "BenignPositive": 5863757,
+      "": 51340
+    },
+    "entity_types": [
+      "ActiveDirectoryDomain",
+      "AmazonResource",
+      "AzureResource",
+      "Blob",
+      "BlobContainer",
+      "CloudApplication",
+      "CloudLogonRequest",
+      "CloudLogonSession",
+      "Container",
+      "ContainerImage",
+      "ContainerRegistry",
+      "File",
+      "GenericEntity",
+      "GoogleCloudResource",
+      "IoTDevice",
+      "Ip",
+      "KubernetesCluster",
+      "KubernetesNamespace",
+      "KubernetesPod",
+      "Machine",
+      "MailCluster",
+      "MailMessage",
+      "Mailbox",
+      "MailboxConfiguration",
+      "Malware",
+      "Nic",
+      "OAuthApplication",
+      "Process",
+      "RegistryKey",
+      "RegistryValue",
+      "SecurityGroup",
+      "Url",
+      "User"
+    ],
+    "n_entity_types": 33,
+    "suspicion_nonempty": 2093964,
+    "suspicion_coverage_pct": 15.3,
+    "by_split": {
+      "train": {
+        "n": 9516837,
+        "valid_ocsf_pct": 100.0,
+        "unknown_field_rate_pct": 46.2,
+        "n_columns": 45,
+        "n_entity_types": 33,
+        "n_categories": 20,
+        "suspicion_coverage_pct": 15.2,
+        "incident_grade": {
+          "TruePositive": 3322713,
+          "FalsePositive": 2031967,
+          "BenignPositive": 4110817,
+          "": 51340
+        },
+        "elapsed_s": 603.9
+      },
+      "test": {
+        "n": 4147992,
+        "valid_ocsf_pct": 100.0,
+        "unknown_field_rate_pct": 46.1,
+        "n_columns": 46,
+        "n_entity_types": 29,
+        "n_categories": 19,
+        "suspicion_coverage_pct": 15.7,
+        "incident_grade": {
+          "BenignPositive": 1752940,
+          "FalsePositive": 902698,
+          "TruePositive": 1492354
+        },
+        "elapsed_s": 262.0
+      }
+    },
+    "n_categories": 20,
+    "categories": [
+      "Collection",
+      "CommandAndControl",
+      "CredentialAccess",
+      "CredentialStealing",
+      "DefenseEvasion",
+      "Discovery",
+      "Execution",
+      "Exfiltration",
+      "Exploit",
+      "Impact",
+      "InitialAccess",
+      "LateralMovement",
+      "Malware",
+      "Persistence",
+      "PrivilegeEscalation",
+      "Ransomware",
+      "SuspiciousActivity",
+      "UnwantedSoftware",
+      "Weaponization",
+      "WebExploit"
+    ]
+  },
+  "guide_incident_grade": {
+    "true_positive": {
+      "n": 4815067,
+      "pct": 35.2
+    },
+    "benign_positive": {
+      "n": 5863757,
+      "pct": 42.9
+    },
+    "false_positive": {
+      "n": 2934665,
+      "pct": 21.5
+    },
+    "ungraded": {
+      "n": 51340,
+      "pct": 0.4
+    },
+    "other": {
+      "n": 0,
+      "pct": 0.0
+    },
+    "raw": {
+      "TruePositive": 4815067,
+      "FalsePositive": 2934665,
+      "BenignPositive": 5863757,
+      "<blank>": 51340
+    }
+  },
+  "guide_incident_grade_train": {
+    "true_positive": {
+      "n": 3322713,
+      "pct": 34.9
+    },
+    "benign_positive": {
+      "n": 4110817,
+      "pct": 43.2
+    },
+    "false_positive": {
+      "n": 2031967,
+      "pct": 21.4
+    },
+    "ungraded": {
+      "n": 51340,
+      "pct": 0.5
+    },
+    "other": {
+      "n": 0,
+      "pct": 0.0
+    },
+    "raw": {
+      "TruePositive": 3322713,
+      "FalsePositive": 2031967,
+      "BenignPositive": 4110817,
+      "<blank>": 51340
+    }
+  },
+  "paper_guide_e1_sample_to_replace": {
+    "n": 3000000,
+    "valid_ocsf_pct": 100.0,
+    "unknown_field_rate_pct": 46.2
+  }
+}

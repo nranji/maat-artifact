@@ -1,0 +1,650 @@
+{
+  "generator": "ollama:llama3.1:8b",
+  "ollama": true,
+  "e1_full": null,
+  "aggregated": [
+    {
+      "label": "guide_train",
+      "n_seeds": 5,
+      "generator": "ollama:llama3.1:8b",
+      "n_alerts": 120,
+      "E1_valid_ocsf_pct": {
+        "mean": 100.0,
+        "std": 0.0,
+        "ci95": [
+          100.0,
+          100.0
+        ],
+        "n": 5
+      },
+      "E1_unknown_field_rate_pct": {
+        "mean": 47.0,
+        "std": 1.03,
+        "ci95": [
+          46.09,
+          47.91
+        ],
+        "n": 5
+      },
+      "E2_C1_emitted_clean_pct": {
+        "mean": 18.66,
+        "std": 3.81,
+        "ci95": [
+          15.32,
+          22.0
+        ],
+        "n": 5
+      },
+      "E2_C2_emitted_clean_pct": {
+        "mean": 88.32,
+        "std": 3.38,
+        "ci95": [
+          85.36,
+          91.28
+        ],
+        "n": 5
+      },
+      "E2_C3_emitted_clean_pct": {
+        "mean": 100.0,
+        "std": 0.0,
+        "ci95": [
+          100.0,
+          100.0
+        ],
+        "n": 5
+      },
+      "E2_gated_to_review_pct": {
+        "mean": 11.68,
+        "std": 3.38,
+        "ci95": [
+          8.72,
+          14.64
+        ],
+        "n": 5
+      },
+      "E3_injection_caught_pct": {
+        "mean": 100.0,
+        "std": 0.0,
+        "ci95": [
+          100.0,
+          100.0
+        ],
+        "n": 5
+      },
+      "E3_false_block_pct": {
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "n": 5
+      },
+      "runtime_summarize_ms": {
+        "mean": 1615.59,
+        "std": 81.23,
+        "ci95": [
+          1544.4,
+          1686.79
+        ],
+        "n": 5
+      },
+      "runtime_validate_ms": {
+        "mean": 0.1,
+        "std": 0.0,
+        "ci95": [
+          0.1,
+          0.1
+        ],
+        "n": 5
+      },
+      "runtime_validator_overhead_pct": {
+        "mean": 0.0,
+        "std": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "n": 5
+      },
+      "c3_key": "C3_canonical_grounded_validated[ollama:llama3.1:8b]"
+    }
+  ],
+  "configs": [
+    {
+      "label": "guide_train",
+      "dataset": "guide",
+      "desc": "GUIDE real SOC triage records (train split)",
+      "seed": 7,
+      "n_alerts": 120,
+      "generator": "ollama:llama3.1:8b",
+      "ollama": true,
+      "E1": {
+        "n_alerts": 120,
+        "valid_ocsf_pct": 100.0,
+        "unknown_field_rate_pct": 46.5,
+        "by_detector": {
+          "guide": {
+            "n": 120,
+            "valid_pct": 100.0,
+            "unknown_field_rate_pct": 46.5
+          }
+        }
+      },
+      "E2": {
+        "C1_raw_no_grounding_no_validator": {
+          "n": 120,
+          "summaries_with_violation_pct": 85.0,
+          "contradiction_count": 5,
+          "unsupported_count": 93,
+          "unknown_violation_count": 28,
+          "mean_field_preservation": 0.99,
+          "gated_to_manual_review_pct": 0.0,
+          "emitted_pct": 100.0,
+          "emitted_clean_pct": 15.0
+        },
+        "C2_canonical_grounded_no_validator": {
+          "n": 120,
+          "summaries_with_violation_pct": 10.0,
+          "contradiction_count": 0,
+          "unsupported_count": 13,
+          "unknown_violation_count": 0,
+          "mean_field_preservation": 0.935,
+          "gated_to_manual_review_pct": 0.0,
+          "emitted_pct": 100.0,
+          "emitted_clean_pct": 90.0
+        },
+        "C3_canonical_grounded_validated[ollama:llama3.1:8b]": {
+          "n": 120,
+          "summaries_with_violation_pct": 10.0,
+          "contradiction_count": 0,
+          "unsupported_count": 13,
+          "unknown_violation_count": 0,
+          "mean_field_preservation": 0.935,
+          "gated_to_manual_review_pct": 10.0,
+          "emitted_pct": 90.0,
+          "emitted_clean_pct": 100.0
+        }
+      },
+      "E3": {
+        "n_poisoned": 24,
+        "injection_caught_pct": 100.0,
+        "false_block_pct": 0.0,
+        "control_emitted_pct": 100.0,
+        "by_type": {
+          "severity_downgrade": {
+            "n": 6,
+            "caught_pct": 100.0,
+            "control_emitted_pct": 100.0
+          },
+          "unsupported_remediation": {
+            "n": 6,
+            "caught_pct": 100.0,
+            "control_emitted_pct": 100.0
+          },
+          "fake_actor": {
+            "n": 6,
+            "caught_pct": 100.0,
+            "control_emitted_pct": 100.0
+          },
+          "url_relabel": {
+            "n": 6,
+            "caught_pct": 100.0,
+            "control_emitted_pct": 100.0
+          }
+        }
+      },
+      "runtime": {
+        "n": 120,
+        "adapt_ms": 0.081,
+        "summarize_ms": 1745.087,
+        "validate_ms": 0.102,
+        "validator_overhead_pct": 0.0
+      },
+      "baseline_vs_deterministic": {
+        "deterministic_gate": {
+          "admitted": 108,
+          "admitted_clean_pct": 100.0,
+          "leaked_unfaithful": 0,
+          "over_blocked_clean": 0,
+          "n": 120
+        },
+        "llm_judge": {
+          "admitted": 108,
+          "admitted_clean_pct": 89.8,
+          "leaked_unfaithful": 11,
+          "over_blocked_clean": 11,
+          "n": 120
+        }
+      }
+    },
+    {
+      "label": "guide_train",
+      "dataset": "guide",
+      "desc": "GUIDE real SOC triage records (train split)",
+      "seed": 11,
+      "n_alerts": 120,
+      "generator": "ollama:llama3.1:8b",
+      "ollama": true,
+      "E1": {
+        "n_alerts": 120,
+        "valid_ocsf_pct": 100.0,
+        "unknown_field_rate_pct": 47.7,
+        "by_detector": {
+          "guide": {
+            "n": 120,
+            "valid_pct": 100.0,
+            "unknown_field_rate_pct": 47.7
+          }
+        }
+      },
+      "E2": {
+        "C1_raw_no_grounding_no_validator": {
+          "n": 120,
+          "summaries_with_violation_pct": 79.2,
+          "contradiction_count": 4,
+          "unsupported_count": 92,
+          "unknown_violation_count": 25,
+          "mean_field_preservation": 0.992,
+          "gated_to_manual_review_pct": 0.0,
+          "emitted_pct": 100.0,
+          "emitted_clean_pct": 20.8
+        },
+        "C2_canonical_grounded_no_validator": {
+          "n": 120,
+          "summaries_with_violation_pct": 9.2,
+          "contradiction_count": 0,
+          "unsupported_count": 11,
+          "unknown_violation_count": 0,
+          "mean_field_preservation": 0.97,
+          "gated_to_manual_review_pct": 0.0,
+          "emitted_pct": 100.0,
+          "emitted_clean_pct": 90.8
+        },
+        "C3_canonical_grounded_validated[ollama:llama3.1:8b]": {
+          "n": 120,
+          "summaries_with_violation_pct": 9.2,
+          "contradiction_count": 0,
+          "unsupported_count": 11,
+          "unknown_violation_count": 0,
+          "mean_field_preservation": 0.97,
+          "gated_to_manual_review_pct": 9.2,
+          "emitted_pct": 90.8,
+          "emitted_clean_pct": 100.0
+        }
+      },
+      "E3": {
+        "n_poisoned": 24,
+        "injection_caught_pct": 100.0,
+        "false_block_pct": 0.0,
+        "control_emitted_pct": 100.0,
+        "by_type": {
+          "severity_downgrade": {
+            "n": 6,
+            "caught_pct": 100.0,
+            "control_emitted_pct": 100.0
+          },
+          "unsupported_remediation": {
+            "n": 6,
+            "caught_pct": 100.0,
+            "control_emitted_pct": 100.0
+          },
+          "fake_actor": {
+            "n": 6,
+            "caught_pct": 100.0,
+            "control_emitted_pct": 100.0
+          },
+          "url_relabel": {
+            "n": 6,
+            "caught_pct": 100.0,
+            "control_emitted_pct": 100.0
+          }
+        }
+      },
+      "runtime": {
+        "n": 120,
+        "adapt_ms": 0.071,
+        "summarize_ms": 1588.61,
+        "validate_ms": 0.102,
+        "validator_overhead_pct": 0.0
+      },
+      "baseline_vs_deterministic": {
+        "deterministic_gate": {
+          "admitted": 109,
+          "admitted_clean_pct": 100.0,
+          "leaked_unfaithful": 0,
+          "over_blocked_clean": 0,
+          "n": 120
+        },
+        "llm_judge": {
+          "admitted": 110,
+          "admitted_clean_pct": 90.0,
+          "leaked_unfaithful": 11,
+          "over_blocked_clean": 10,
+          "n": 120
+        }
+      }
+    },
+    {
+      "label": "guide_train",
+      "dataset": "guide",
+      "desc": "GUIDE real SOC triage records (train split)",
+      "seed": 13,
+      "n_alerts": 120,
+      "generator": "ollama:llama3.1:8b",
+      "ollama": true,
+      "E1": {
+        "n_alerts": 120,
+        "valid_ocsf_pct": 100.0,
+        "unknown_field_rate_pct": 47.7,
+        "by_detector": {
+          "guide": {
+            "n": 120,
+            "valid_pct": 100.0,
+            "unknown_field_rate_pct": 47.7
+          }
+        }
+      },
+      "E2": {
+        "C1_raw_no_grounding_no_validator": {
+          "n": 120,
+          "summaries_with_violation_pct": 84.2,
+          "contradiction_count": 2,
+          "unsupported_count": 94,
+          "unknown_violation_count": 33,
+          "mean_field_preservation": 0.996,
+          "gated_to_manual_review_pct": 0.0,
+          "emitted_pct": 100.0,
+          "emitted_clean_pct": 15.8
+        },
+        "C2_canonical_grounded_no_validator": {
+          "n": 120,
+          "summaries_with_violation_pct": 11.7,
+          "contradiction_count": 0,
+          "unsupported_count": 15,
+          "unknown_violation_count": 0,
+          "mean_field_preservation": 0.953,
+          "gated_to_manual_review_pct": 0.0,
+          "emitted_pct": 100.0,
+          "emitted_clean_pct": 88.3
+        },
+        "C3_canonical_grounded_validated[ollama:llama3.1:8b]": {
+          "n": 120,
+          "summaries_with_violation_pct": 11.7,
+          "contradiction_count": 0,
+          "unsupported_count": 15,
+          "unknown_violation_count": 0,
+          "mean_field_preservation": 0.953,
+          "gated_to_manual_review_pct": 11.7,
+          "emitted_pct": 88.3,
+          "emitted_clean_pct": 100.0
+        }
+      },
+      "E3": {
+        "n_poisoned": 24,
+        "injection_caught_pct": 100.0,
+        "false_block_pct": 0.0,
+        "control_emitted_pct": 100.0,
+        "by_type": {
+          "severity_downgrade": {
+            "n": 6,
+            "caught_pct": 100.0,
+            "control_emitted_pct": 100.0
+          },
+          "unsupported_remediation": {
+            "n": 6,
+            "caught_pct": 100.0,
+            "control_emitted_pct": 100.0
+          },
+          "fake_actor": {
+            "n": 6,
+            "caught_pct": 100.0,
+            "control_emitted_pct": 100.0
+          },
+          "url_relabel": {
+            "n": 6,
+            "caught_pct": 100.0,
+            "control_emitted_pct": 100.0
+          }
+        }
+      },
+      "runtime": {
+        "n": 120,
+        "adapt_ms": 0.081,
+        "summarize_ms": 1549.634,
+        "validate_ms": 0.097,
+        "validator_overhead_pct": 0.0
+      },
+      "baseline_vs_deterministic": {
+        "deterministic_gate": {
+          "admitted": 106,
+          "admitted_clean_pct": 100.0,
+          "leaked_unfaithful": 0,
+          "over_blocked_clean": 0,
+          "n": 120
+        },
+        "llm_judge": {
+          "admitted": 107,
+          "admitted_clean_pct": 88.8,
+          "leaked_unfaithful": 12,
+          "over_blocked_clean": 11,
+          "n": 120
+        }
+      }
+    },
+    {
+      "label": "guide_train",
+      "dataset": "guide",
+      "desc": "GUIDE real SOC triage records (train split)",
+      "seed": 17,
+      "n_alerts": 120,
+      "generator": "ollama:llama3.1:8b",
+      "ollama": true,
+      "E1": {
+        "n_alerts": 120,
+        "valid_ocsf_pct": 100.0,
+        "unknown_field_rate_pct": 45.4,
+        "by_detector": {
+          "guide": {
+            "n": 120,
+            "valid_pct": 100.0,
+            "unknown_field_rate_pct": 45.4
+          }
+        }
+      },
+      "E2": {
+        "C1_raw_no_grounding_no_validator": {
+          "n": 120,
+          "summaries_with_violation_pct": 82.5,
+          "contradiction_count": 5,
+          "unsupported_count": 98,
+          "unknown_violation_count": 20,
+          "mean_field_preservation": 0.99,
+          "gated_to_manual_review_pct": 0.0,
+          "emitted_pct": 100.0,
+          "emitted_clean_pct": 17.5
+        },
+        "C2_canonical_grounded_no_validator": {
+          "n": 120,
+          "summaries_with_violation_pct": 17.5,
+          "contradiction_count": 0,
+          "unsupported_count": 22,
+          "unknown_violation_count": 0,
+          "mean_field_preservation": 0.965,
+          "gated_to_manual_review_pct": 0.0,
+          "emitted_pct": 100.0,
+          "emitted_clean_pct": 82.5
+        },
+        "C3_canonical_grounded_validated[ollama:llama3.1:8b]": {
+          "n": 120,
+          "summaries_with_violation_pct": 17.5,
+          "contradiction_count": 0,
+          "unsupported_count": 22,
+          "unknown_violation_count": 0,
+          "mean_field_preservation": 0.965,
+          "gated_to_manual_review_pct": 17.5,
+          "emitted_pct": 82.5,
+          "emitted_clean_pct": 100.0
+        }
+      },
+      "E3": {
+        "n_poisoned": 24,
+        "injection_caught_pct": 100.0,
+        "false_block_pct": 0.0,
+        "control_emitted_pct": 100.0,
+        "by_type": {
+          "severity_downgrade": {
+            "n": 6,
+            "caught_pct": 100.0,
+            "control_emitted_pct": 100.0
+          },
+          "unsupported_remediation": {
+            "n": 6,
+            "caught_pct": 100.0,
+            "control_emitted_pct": 100.0
+          },
+          "fake_actor": {
+            "n": 6,
+            "caught_pct": 100.0,
+            "control_emitted_pct": 100.0
+          },
+          "url_relabel": {
+            "n": 6,
+            "caught_pct": 100.0,
+            "control_emitted_pct": 100.0
+          }
+        }
+      },
+      "runtime": {
+        "n": 120,
+        "adapt_ms": 0.089,
+        "summarize_ms": 1553.296,
+        "validate_ms": 0.102,
+        "validator_overhead_pct": 0.0
+      },
+      "baseline_vs_deterministic": {
+        "deterministic_gate": {
+          "admitted": 98,
+          "admitted_clean_pct": 100.0,
+          "leaked_unfaithful": 0,
+          "over_blocked_clean": 0,
+          "n": 119
+        },
+        "llm_judge": {
+          "admitted": 110,
+          "admitted_clean_pct": 82.7,
+          "leaked_unfaithful": 19,
+          "over_blocked_clean": 7,
+          "n": 119
+        }
+      }
+    },
+    {
+      "label": "guide_train",
+      "dataset": "guide",
+      "desc": "GUIDE real SOC triage records (train split)",
+      "seed": 19,
+      "n_alerts": 120,
+      "generator": "ollama:llama3.1:8b",
+      "ollama": true,
+      "E1": {
+        "n_alerts": 120,
+        "valid_ocsf_pct": 100.0,
+        "unknown_field_rate_pct": 47.7,
+        "by_detector": {
+          "guide": {
+            "n": 120,
+            "valid_pct": 100.0,
+            "unknown_field_rate_pct": 47.7
+          }
+        }
+      },
+      "E2": {
+        "C1_raw_no_grounding_no_validator": {
+          "n": 120,
+          "summaries_with_violation_pct": 75.8,
+          "contradiction_count": 3,
+          "unsupported_count": 86,
+          "unknown_violation_count": 30,
+          "mean_field_preservation": 0.994,
+          "gated_to_manual_review_pct": 0.0,
+          "emitted_pct": 100.0,
+          "emitted_clean_pct": 24.2
+        },
+        "C2_canonical_grounded_no_validator": {
+          "n": 120,
+          "summaries_with_violation_pct": 10.0,
+          "contradiction_count": 0,
+          "unsupported_count": 12,
+          "unknown_violation_count": 2,
+          "mean_field_preservation": 0.957,
+          "gated_to_manual_review_pct": 0.0,
+          "emitted_pct": 100.0,
+          "emitted_clean_pct": 90.0
+        },
+        "C3_canonical_grounded_validated[ollama:llama3.1:8b]": {
+          "n": 120,
+          "summaries_with_violation_pct": 10.0,
+          "contradiction_count": 0,
+          "unsupported_count": 12,
+          "unknown_violation_count": 2,
+          "mean_field_preservation": 0.957,
+          "gated_to_manual_review_pct": 10.0,
+          "emitted_pct": 90.0,
+          "emitted_clean_pct": 100.0
+        }
+      },
+      "E3": {
+        "n_poisoned": 24,
+        "injection_caught_pct": 100.0,
+        "false_block_pct": 0.0,
+        "control_emitted_pct": 100.0,
+        "by_type": {
+          "severity_downgrade": {
+            "n": 6,
+            "caught_pct": 100.0,
+            "control_emitted_pct": 100.0
+          },
+          "unsupported_remediation": {
+            "n": 6,
+            "caught_pct": 100.0,
+            "control_emitted_pct": 100.0
+          },
+          "fake_actor": {
+            "n": 6,
+            "caught_pct": 100.0,
+            "control_emitted_pct": 100.0
+          },
+          "url_relabel": {
+            "n": 6,
+            "caught_pct": 100.0,
+            "control_emitted_pct": 100.0
+          }
+        }
+      },
+      "runtime": {
+        "n": 120,
+        "adapt_ms": 0.085,
+        "summarize_ms": 1641.344,
+        "validate_ms": 0.092,
+        "validator_overhead_pct": 0.0
+      },
+      "baseline_vs_deterministic": {
+        "deterministic_gate": {
+          "admitted": 108,
+          "admitted_clean_pct": 100.0,
+          "leaked_unfaithful": 0,
+          "over_blocked_clean": 0,
+          "n": 120
+        },
+        "llm_judge": {
+          "admitted": 111,
+          "admitted_clean_pct": 91.9,
+          "leaked_unfaithful": 9,
+          "over_blocked_clean": 6,
+          "n": 120
+        }
+      }
+    }
+  ]
+}

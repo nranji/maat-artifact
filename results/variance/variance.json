@@ -1,0 +1,126 @@
+{
+  "generator": "ollama:llama3.2:3b",
+  "k": 5,
+  "wall_clock_sec": 1313.0,
+  "note": "Between-generation SD: k independent summaries on one fixed sample (seed 7). Between-seed SD: transcribed from the committed five-seed aggregates (AIT from results/all, GUIDE from results/all_n120).",
+  "corpora": [
+    {
+      "label": "ait_csv_pooled",
+      "dataset": "ait_ads",
+      "desc": "AIT-ADS pooled (csv_pooled, all scenarios)",
+      "n_alerts": 120,
+      "sample_seed": 7,
+      "k": 5,
+      "per_generation": [
+        {
+          "generation": 0,
+          "n_alerts": 120,
+          "C2_emitted_clean_pct": 63.3,
+          "gated_to_review_pct": 36.7,
+          "wall_sec": 103.5
+        },
+        {
+          "generation": 1,
+          "n_alerts": 120,
+          "C2_emitted_clean_pct": 60.0,
+          "gated_to_review_pct": 40.0,
+          "wall_sec": 108.7
+        },
+        {
+          "generation": 2,
+          "n_alerts": 120,
+          "C2_emitted_clean_pct": 60.0,
+          "gated_to_review_pct": 40.0,
+          "wall_sec": 161.1
+        },
+        {
+          "generation": 3,
+          "n_alerts": 120,
+          "C2_emitted_clean_pct": 67.5,
+          "gated_to_review_pct": 32.5,
+          "wall_sec": 117.8
+        },
+        {
+          "generation": 4,
+          "n_alerts": 120,
+          "C2_emitted_clean_pct": 62.5,
+          "gated_to_review_pct": 37.5,
+          "wall_sec": 113.6
+        }
+      ],
+      "between_generation": {
+        "C2_emitted_clean_pct_mean": 62.66,
+        "C2_emitted_clean_pct_sd": 3.0827,
+        "gated_to_review_pct_mean": 37.34,
+        "gated_to_review_pct_sd": 3.0827
+      },
+      "between_seed": {
+        "C2_emitted_clean_pct_sd": 5.97,
+        "C2_emitted_clean_pct_mean": 64.68,
+        "gated_to_review_pct_sd": 5.97,
+        "gated_to_review_pct_mean": 35.32,
+        "n_seeds": 5,
+        "source": "results/all/consolidated.json"
+      }
+    },
+    {
+      "label": "guide_train",
+      "dataset": "guide",
+      "desc": "GUIDE real SOC triage records (train split)",
+      "n_alerts": 120,
+      "sample_seed": 7,
+      "k": 5,
+      "per_generation": [
+        {
+          "generation": 0,
+          "n_alerts": 120,
+          "C2_emitted_clean_pct": 75.8,
+          "gated_to_review_pct": 24.2,
+          "wall_sec": 123.6
+        },
+        {
+          "generation": 1,
+          "n_alerts": 120,
+          "C2_emitted_clean_pct": 75.0,
+          "gated_to_review_pct": 25.0,
+          "wall_sec": 136.4
+        },
+        {
+          "generation": 2,
+          "n_alerts": 120,
+          "C2_emitted_clean_pct": 76.7,
+          "gated_to_review_pct": 23.3,
+          "wall_sec": 117.6
+        },
+        {
+          "generation": 3,
+          "n_alerts": 120,
+          "C2_emitted_clean_pct": 80.8,
+          "gated_to_review_pct": 19.2,
+          "wall_sec": 111.3
+        },
+        {
+          "generation": 4,
+          "n_alerts": 120,
+          "C2_emitted_clean_pct": 79.2,
+          "gated_to_review_pct": 20.8,
+          "wall_sec": 109.2
+        }
+      ],
+      "between_generation": {
+        "C2_emitted_clean_pct_mean": 77.5,
+        "C2_emitted_clean_pct_sd": 2.4269,
+        "gated_to_review_pct_mean": 22.5,
+        "gated_to_review_pct_sd": 2.4269
+      },
+      "between_seed": {
+        "C2_emitted_clean_pct_sd": 2.98,
+        "C2_emitted_clean_pct_mean": 79.34,
+        "gated_to_review_pct_sd": 2.98,
+        "gated_to_review_pct_mean": 20.66,
+        "n_seeds": 5,
+        "source": "results/all_n120/consolidated.json"
+      }
+    }
+  ]
+}

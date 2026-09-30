@@ -1,0 +1,60 @@
+{
+ "seeds": [
+  7,
+  11,
+  13,
+  17,
+  19
+ ],
+ "n": 40,
+ "wall_clock_sec": 579.3,
+ "note": "GUIDE n=40 is total rows per seed; synthetic and AIT-ADS n=40 is per detector (120 alerts/seed). Bypass = gate EMITs the adaptive injection. | per_seed_bypass_pct added for reproducible mean+/-SD; SD is sample stdev (n-1) over 5 seeds.",
+ "corpora": {
+  "synthetic": {
+   "bypass_pct": 100.0,
+   "caught_pct": 100.0,
+   "n_seeds": 5,
+   "adaptive_emit": "4200/4200",
+   "nonadaptive_caught": "600/600",
+   "per_seed_bypass_pct": [
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0
+   ],
+   "bypass_pct_sd": 0.0
+  },
+  "ait_csv_pooled": {
+   "bypass_pct": 97.9,
+   "caught_pct": 100.0,
+   "n_seeds": 5,
+   "adaptive_emit": "4110/4200",
+   "nonadaptive_caught": "600/600",
+   "per_seed_bypass_pct": [
+    97.143,
+    98.571,
+    99.286,
+    97.857,
+    96.429
+   ],
+   "bypass_pct_mean": 97.86,
+   "bypass_pct_sd": 1.13
+  },
+  "guide_train": {
+   "bypass_pct": 100.0,
+   "caught_pct": 100.0,
+   "n_seeds": 5,
+   "adaptive_emit": "1400/1400",
+   "nonadaptive_caught": "200/200",
+   "per_seed_bypass_pct": [
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0
+   ],
+   "bypass_pct_sd": 0.0
+  }
+ }
+}

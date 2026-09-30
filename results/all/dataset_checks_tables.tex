@@ -1,0 +1,36 @@
+\begin{table*}[t]
+\caption{Datasets used in the evaluation.}
+\label{tab:datasets}
+\centering
+\small
+\begin{tabular}{@{}l p{6.1cm} p{6.6cm}@{}}
+\toprule
+ & \textbf{AIT-ADS}~\cite{aitads} & \textbf{GUIDE}~\cite{guide} \\
+\midrule
+Records       & 2,655,821 alerts (reduced corpus) & 13,664,829 records (9.52M train, 4.15M test) \\
+Sources       & Wazuh (HIDS), Suricata (NIDS), AMiner (anomaly) & Microsoft Defender/Sentinel (SIEM/XDR) \\
+Fields        & per-detector alert fields mapped to OCSF & 45 columns; 33 entity types (IP, user, mailbox, machine, file, URL, cloud logon, \ldots) across endpoint, identity, email, cloud \\
+Labels        & attack-phase, recovered by joining on host IP + normalized signature & IncidentGrade: 35.2\% true-positive, 42.9\% benign-positive, 21.5\% false-positive, 0.4\% ungraded \\
+Severity      & Wazuh rule levels; \unk{} for Suricata and AMiner & SuspicionLevel populated for 15.3\% of records; \unk{} otherwise \\
+Used in E1--E3 & pooled stratified sample, 120 alerts/seed & training-split sample, 40 records/seed \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table}[t]
+\caption{Harmonization coverage and OCSF validity (deterministic, no LLM). AIT-ADS is the full reduced corpus; GUIDE is the full train+test release (13,664,829 records).}
+\label{tab:e1}
+\centering
+\begin{tabular}{lrrr}
+\toprule
+Source & Records & Valid OCSF \% & \unk{} field \% \\
+\midrule
+Wazuh (HIDS)     & 2,293,628 & 100.0 & 75.0 \\
+Suricata (NIDS)  & 306,635 & 100.0 & 75.0 \\
+AMiner (anomaly) & 55,558 & 100.0 & 75.0 \\
+\textbf{AIT-ADS total} & \textbf{2,655,821} & \textbf{100.0} & 75.0 \\
+\midrule
+GUIDE (SIEM/XDR) & 13,664,829 & 100.0 & 46.2 \\
+\bottomrule
+\end{tabular}
+\end{table}

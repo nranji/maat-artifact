@@ -1,0 +1,12 @@
+# Pinned to the venv used for the submitted five-seed run (Python 3.9).
+# pydantic-ai 1.x needs Python >=3.10; this tree ran pydantic-ai-slim 0.8.1.
+jsonschema==4.25.1
+pydantic-ai-slim[openai]==0.8.1
+ollama==0.6.2
+# Transitive pins so a clean install matches that venv (the code imports these).
+openai==2.44.0
+pydantic==2.13.4
+httpx==0.28.1
+# figures/make_figs.py
+numpy==1.26.4
+matplotlib==3.8.4

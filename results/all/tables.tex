@@ -1,0 +1,20 @@
+% Auto-generated from consolidated.json by make_tables.py
+% Requires \usepackage{booktabs}
+\begin{table}[t]\centering
+\caption{Full-corpus harmonization over all 2,655,821 AIT-ADS alerts: 100.0\% valid OCSF.}
+\begin{tabular}{lrrr}\toprule
+Detector & Alerts & Valid OCSF \% & UNKNOWN \% \\ \midrule
+wazuh & 2,293,628 & 100.0 & 75.0 \\
+suricata & 306,635 & 100.0 & 75.0 \\
+aminer & 55,558 & 100.0 & 75.0 \\ \bottomrule
+\end{tabular}\end{table}
+
+\begin{table*}[t]\centering
+\caption{Faithfulness and injection robustness (mean [95\% CI] over seeds).}
+\begin{tabular}{lcccccc}\toprule
+Config & C1 raw & C2 grounded & C3 validated & Gated \% & Caught \% & False-block \% \\ \midrule
+synthetic & 19.5 {[}16.29, 22.71{]} & 69.18 {[}67.54, 70.82{]} & 100.0 {[}100.0, 100.0{]} & 30.82 {[}29.18, 32.46{]} & 100.0 {[}100.0, 100.0{]} & 0.0 {[}0.0, 0.0{]} \\
+ait_csv_pooled & 17.7 {[}14.76, 20.64{]} & 64.68 {[}59.44, 69.92{]} & 100.0 {[}100.0, 100.0{]} & 35.32 {[}30.08, 40.56{]} & 100.0 {[}100.0, 100.0{]} & 5.82 {[}0.93, 10.71{]} \\
+guide_train & 16.5 {[}7.39, 25.61{]} & 78.0 {[}69.6, 86.4{]} & 100.0 {[}100.0, 100.0{]} & 22.0 {[}13.6, 30.4{]} & 100.0 {[}100.0, 100.0{]} & 0.0 {[}0.0, 0.0{]} \\ \bottomrule
+\end{tabular}\end{table*}
+

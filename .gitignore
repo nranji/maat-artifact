@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+.env
+.DS_Store
+*.log
+data/ait_ads/
+data/guide/
+results/**/*_s7/
+results/**/*_s11/
+results/**/*_s13/
+results/**/*_s17/
+results/**/*_s19/
