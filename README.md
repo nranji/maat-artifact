@@ -96,11 +96,11 @@ are in `results/all_8b_guide_n120/`.
    python src/run_adaptive_injection.py --seeds 7,11,13,17,19
    ```
 
-`bypass_pct` in `results/all/adaptive_injection.json` is a legacy name. It is
-the gate-release rate: the fraction of summaries written from the adaptive
-templates that the gate marks `EMIT`. The run does not count how many of those summaries
-actually contain the planted false claim, so the field is not an estimate of
-released-and-unsupported outputs over outputs that contain the claim.
+**Adaptive-injection metric.** The artifact field `bypass_pct` is a legacy
+name. The reported quantity is the gate-release rate, i.e., the fraction of
+outputs generated under the adaptive-injection templates that receive `EMIT`.
+The experiment does not independently estimate `N_s`, so this value should
+not be interpreted as `N_{s,e}/N_s`.
 
 `E3_false_block_pct` is also a legacy name. It is the share of control
 summaries routed to review. It is not a human-labeled false-positive rate.
