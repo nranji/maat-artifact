@@ -54,7 +54,7 @@ def fig_e2(agg):
         ax.bar(x + (i - 1) * w, means, w, yerr=errs, capsize=3, label=lab,
                color=colors[i], edgecolor="black", linewidth=0.4)
     ax.set_xticks(x); ax.set_xticklabels([NAMES[c] for c in ORDER])
-    ax.set_ylabel("Emitted-clean summaries (%)"); ax.set_ylim(0, 108)
+    ax.set_ylabel("Checked-field pass rate (%)"); ax.set_ylim(0, 108)
     ax.legend(frameon=False, fontsize=9, ncol=3, loc="upper center", bbox_to_anchor=(0.5, 1.13))
     for s in ("top", "right"):
         ax.spines[s].set_visible(False)
